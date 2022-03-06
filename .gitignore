@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+# ** will search for all the node_modules inside the directory & ignore them.
 # dependencies
-/node_modules
+**/node_modules 
 /.pnp
 .pnp.js
 

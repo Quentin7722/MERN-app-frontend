@@ -26,6 +26,11 @@ const Post = ({ post, setCurrentId }) => {
   const [open, setOpen] = useState(false); // Modal
   const handleOpen = () => setOpen(!open);
   const handleClose = () => setOpen(!open);
+  const base64String = btoa(
+    new Uint8Array(post.img.image.data).reduce(function (data, byte) {
+      return data + String.fromCharCode(byte);
+    }, "")
+  ); // convert your Buffer to base64 string
 
   const Likes = () => {
     if (post.likes.length > 0) {
@@ -59,7 +64,7 @@ const Post = ({ post, setCurrentId }) => {
     <Card className={classes.card} onClick={handleOpen}>
       <CardMedia
         className={classes.media}
-        image={`http://localhost:5000/uploads/${post.img}`}
+        image={`data:image/png;base64,${base64String}`}
         title={post.title}
       />
       <Modal
@@ -129,7 +134,8 @@ const Post = ({ post, setCurrentId }) => {
             size="small"
             disabled={!user?.result}
             onClick={() => {
-              dispatch(deletePost(post._id, post.img));
+              console.log(post.img.image.data.imgName);
+              dispatch(deletePost(post._id, post.img.imgName));
             }}
           >
             <DeleteIcon fontSize="small" /> &nbsp;Delete

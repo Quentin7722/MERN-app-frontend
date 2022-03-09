@@ -76,7 +76,7 @@ const Post = ({ post, setCurrentId }) => {
         <Box className={classes.modal}>
           <CardMedia
             className={classes.modalImg}
-            image={`http://localhost:5000/uploads/${post.img}`}
+            image={`data:image/png;base64,${base64String}`}
             title={post.title}
           />
           <CloseIcon className={classes.btnClose} onClick={handleClose} />

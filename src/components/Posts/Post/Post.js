@@ -94,7 +94,7 @@ const Post = ({ post, setCurrentId }) => {
           <Button
             style={{ color: "white" }}
             size="small"
-            onClick={() => {
+            onClick={(e) => {
               e.stopPropagation();
               setCurrentId(post._id);
             }}

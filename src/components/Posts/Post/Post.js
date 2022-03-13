@@ -126,7 +126,10 @@ const Post = ({ post, setCurrentId }) => {
           color="primary"
           size="small"
           disabled={!user?.result}
-          onClick={() => dispatch(likePost(post._id))}
+          onClick={(e) => {
+            e.stopPropagation();
+            dispatch(likePost(post._id));
+          }}
         >
           <Likes />
         </Button>
@@ -136,8 +139,8 @@ const Post = ({ post, setCurrentId }) => {
             color="primary"
             size="small"
             disabled={!user?.result}
-            onClick={() => {
-              console.log(post.img.image.data.imgName);
+            onClick={(e) => {
+              e.stopPropagation();
               dispatch(deletePost(post._id, post.img.imgName));
             }}
           >

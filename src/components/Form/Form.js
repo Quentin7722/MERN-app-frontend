@@ -8,7 +8,7 @@ const Form = ({ currentId, setCurrentId }) => {
   const user = JSON.parse(localStorage.getItem("profile"));
   const form = useRef(null);
   const post = useSelector((state) =>
-    currentId ? state.posts.find((message) => message._id === currentId) : null
+    currentId ? state.posts.find((post) => post._id === currentId) : null
   );
   const [inputValue, setInputValue] = useState("");
   const [postData, setPostData] = useState({
@@ -22,7 +22,9 @@ const Form = ({ currentId, setCurrentId }) => {
   const classes = useStyles();
 
   useEffect(() => {
-    if (post) setPostData(post);
+    if (post) {
+      setPostData(post);
+    }
   }, [post]);
 
   const clear = () => {

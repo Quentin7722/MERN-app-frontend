@@ -23,8 +23,10 @@ export const createPost = (formData) =>
 
 export const likePost = (id) => API.patch(`/posts/${id}/likePost`);
 
-export const updatePost = (id, updatedPost) =>
+export const updatePost = (id, updatedPost) => {
+  delete updatedPost.img;
   API.patch(`/posts/${id}`, updatedPost);
+};
 
 export const deletePost = (id, img) => {
   API.delete(`/posts/${id}`, {

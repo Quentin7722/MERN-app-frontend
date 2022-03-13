@@ -69,7 +69,7 @@ function Navbar() {
             </Button>
           </div>
         ) : (
-          <Link to="/auth">
+          <Link to="/auth" className={classes.signIn}>
             <Button variant="contained" color="primary">
               Sign In
             </Button>

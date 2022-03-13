@@ -47,4 +47,7 @@ export default makeStyles((theme) => ({
     backgroundColor: deepPurple[500],
     border: "solid 2px white",
   },
+  signIn: {
+    textDecoration: "none",
+  },
 }));

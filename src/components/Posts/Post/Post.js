@@ -141,7 +141,7 @@ const Post = ({ post, setCurrentId }) => {
             disabled={!user?.result}
             onClick={(e) => {
               e.stopPropagation();
-              dispatch(deletePost(post._id, post.img.imgName));
+              dispatch(deletePost(post._id));
             }}
           >
             <DeleteIcon fontSize="small" /> &nbsp;Delete
